@@ -54,6 +54,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_mpimpichpython3.8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=linux&configuration=linux_mpimpichpython3.8" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>linux_mpinompipython2.7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
@@ -72,6 +79,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=linux&configuration=linux_mpinompipython3.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_mpinompipython3.8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=linux&configuration=linux_mpinompipython3.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -96,6 +110,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_mpiopenmpipython3.8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=linux&configuration=linux_mpiopenmpipython3.8" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_mpimpichpython2.7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
@@ -114,6 +135,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=osx&configuration=osx_mpimpichpython3.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_mpimpichpython3.8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=osx&configuration=osx_mpimpichpython3.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -138,6 +166,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>osx_mpinompipython3.8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=osx&configuration=osx_mpinompipython3.8" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_mpiopenmpipython2.7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
@@ -159,6 +194,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>osx_mpiopenmpipython3.8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=osx&configuration=osx_mpiopenmpipython3.8" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>win_c_compilervs2015cxx_compilervs2015python3.6vc14</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
@@ -170,6 +212,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015cxx_compilervs2015python3.7vc14" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_c_compilervs2015cxx_compilervs2015python3.8vc14</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8895&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/conduit-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015cxx_compilervs2015python3.8vc14" alt="variant">
                 </a>
               </td>
             </tr>
