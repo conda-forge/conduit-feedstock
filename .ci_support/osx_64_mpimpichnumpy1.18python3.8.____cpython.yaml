@@ -17,13 +17,13 @@ fortran_compiler:
 fortran_compiler_version:
 - '9'
 hdf5:
-- 1.10.6
+- 1.12.1
 macos_machine:
 - x86_64-apple-darwin13.4.0
 mpi:
-- openmpi
+- mpich
 numpy:
-- '1.16'
+- '1.18'
 pin_run_as_build:
   python:
     min_pin: x.x
