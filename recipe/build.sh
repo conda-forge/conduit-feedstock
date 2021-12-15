@@ -12,6 +12,7 @@ else
    export ENABLE_MPI="ON"
 fi
 
+
 # configure with cmake
 cmake -DCMAKE_INSTALL_PREFIX=${PREFIX} \
       -DENABLE_PYTHON=ON \
@@ -26,12 +27,27 @@ cmake -DCMAKE_INSTALL_PREFIX=${PREFIX} \
 make
 
 ###############################################
+# Run tests during build when on linux w/o mpi
+###############################################
 # skip running tests during build if mpi is on
 # 
 # rsh/ssh don't exist in build containers
 # so mpiexec fails to launch our tests
 ###############################################
+# skip tests by default
+export RUN_TESTS="OFF"
+
+# run tests when mpi is on
 if [[ ${ENABLE_MPI} == "OFF" ]]; then
+    export RUN_TESTS="ON"
+fi
+
+# skip tests on macos
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export RUN_TESTS="OFF"
+fi
+
+if [[ ${RUN_TESTS} == "ON" ]]; then
      env CTEST_OUTPUT_ON_FAILURE=1 make test
 fi
 
