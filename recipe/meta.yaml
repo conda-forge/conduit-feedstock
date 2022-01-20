@@ -23,7 +23,7 @@ requirements:
     - cmake
   host:
     - {{ mpi }}  # [mpi != 'nompi']
-    - libpython-static # [py>=38]
+    - libpython-static  # [py>=38]
     - python
     - numpy
     - hdf5
