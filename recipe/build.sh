@@ -12,6 +12,12 @@ else
    export ENABLE_MPI="ON"
 fi
 
+if [[ ${mpi} == "mpich" ]] then
+   # Allow argument mismatch in Fortran
+   # https://github.com/pmodels/mpich/issues/4300
+   export FFLAGS="$FFLAGS -fallow-argument-mismatch"
+   export FCFLAGS="$FCFLAGS -fallow-argument-mismatch"
+fi
 
 # configure with cmake
 cmake -DCMAKE_INSTALL_PREFIX=${PREFIX} \
