@@ -1,14 +1,12 @@
-{% set name = "conduit" %}
 {% set version = "0.8.3" %}
-{% set sha256 = "a9e60945366f3b8c37ee6a19f62d79a8d5888be7e230eabc31af2f837283ed1a" %}
 
 package:
-  name: {{ name }}
+  name: conduit
   version: {{ version }}
 
 source:
   url: https://github.com/LLNL/conduit/releases/download/v{{ version }}/conduit-v{{ version }}-src-with-blt.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 55c37ddc668dbc45d43b60c440192f76e688a530d64f9fe1a9c7fdad8cd525fd
 
 build:
   number: 1
