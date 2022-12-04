@@ -12,7 +12,7 @@ else
    export ENABLE_MPI="ON"
 fi
 
-if [[ ${mpi} == "mpich" ]] then
+if [[ ${mpi} == "mpich" ]]; then
    # Allow argument mismatch in Fortran
    # https://github.com/pmodels/mpich/issues/4300
    export FFLAGS="$FFLAGS -fallow-argument-mismatch"
