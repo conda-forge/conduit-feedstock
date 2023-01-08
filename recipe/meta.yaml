@@ -1,6 +1,6 @@
 {% set name = "conduit" %}
 {% set version = "0.8.5" %}
-{% set sha256 = "10726c9b58d4d3c70130ab3504e743e26c895a880f9f1db9bd0aaa9e486089e9" %}
+{% set sha256 = "0667d421999d4146b8adb76f63784a28304faba3e9b56da00cac2957e6b3b6eb" %}
 
 package:
   name: {{ name }}
