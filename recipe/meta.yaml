@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<14]
 
 requirements:
@@ -26,6 +26,7 @@ requirements:
     - libpython-static  # [py>=38]
     - python
     - numpy
+    - openssl
     - hdf5
     - zlib
   run:
