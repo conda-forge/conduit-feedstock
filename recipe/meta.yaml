@@ -1,17 +1,18 @@
 {% set name = "conduit" %}
 {% set version = "0.8.5" %}
-{% set sha256 = "b4a6f269a81570a4597e2565927fd0ed2ac45da0a2500ce5a71c26f7c92c5483" %}
+{% set sha256 = "10726c9b58d4d3c70130ab3504e743e26c895a880f9f1db9bd0aaa9e486089e9" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
+
 source:
-  url: https://github.com/LLNL/conduit/releases/download/v{{ version }}/conduit-v{{ version }}-src-with-blt.tar.gz
+  url: https://github.com/LLNL/conduit/releases/download/untagged-2270d31c76782009f4bc/conduit-v0.8.6-src-with-blt.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
 
 requirements:
