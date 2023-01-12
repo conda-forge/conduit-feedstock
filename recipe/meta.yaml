@@ -26,6 +26,7 @@ requirements:
     - libpython-static  # [py>=38]
     - python
     - numpy
+    - openssl
     - hdf5
     - zlib
   run:
