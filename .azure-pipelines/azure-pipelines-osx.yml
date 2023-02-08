@@ -8,59 +8,32 @@ jobs:
     vmImage: macOS-11
   strategy:
     matrix:
-      osx_64_mpimpichnumpy1.20openssl1.1.1python3.8.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.20openssl1.1.1python3.8.____cpython
+      osx_64_mpimpichnumpy1.20python3.8.____cpython:
+        CONFIG: osx_64_mpimpichnumpy1.20python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpimpichnumpy1.20openssl1.1.1python3.9.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.20openssl1.1.1python3.9.____cpython
+      osx_64_mpimpichnumpy1.20python3.9.____cpython:
+        CONFIG: osx_64_mpimpichnumpy1.20python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpimpichnumpy1.20openssl3python3.8.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.20openssl3python3.8.____cpython
+      osx_64_mpimpichnumpy1.21python3.10.____cpython:
+        CONFIG: osx_64_mpimpichnumpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpimpichnumpy1.20openssl3python3.9.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.20openssl3python3.9.____cpython
+      osx_64_mpinompinumpy1.20python3.8.____cpython:
+        CONFIG: osx_64_mpinompinumpy1.20python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpimpichnumpy1.21openssl1.1.1python3.10.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.21openssl1.1.1python3.10.____cpython
+      osx_64_mpinompinumpy1.20python3.9.____cpython:
+        CONFIG: osx_64_mpinompinumpy1.20python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpimpichnumpy1.21openssl3python3.10.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.21openssl3python3.10.____cpython
+      osx_64_mpinompinumpy1.21python3.10.____cpython:
+        CONFIG: osx_64_mpinompinumpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpinompinumpy1.20openssl1.1.1python3.8.____cpython:
-        CONFIG: osx_64_mpinompinumpy1.20openssl1.1.1python3.8.____cpython
+      osx_64_mpiopenmpinumpy1.20python3.8.____cpython:
+        CONFIG: osx_64_mpiopenmpinumpy1.20python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpinompinumpy1.20openssl1.1.1python3.9.____cpython:
-        CONFIG: osx_64_mpinompinumpy1.20openssl1.1.1python3.9.____cpython
+      osx_64_mpiopenmpinumpy1.20python3.9.____cpython:
+        CONFIG: osx_64_mpiopenmpinumpy1.20python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpinompinumpy1.20openssl3python3.8.____cpython:
-        CONFIG: osx_64_mpinompinumpy1.20openssl3python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpinompinumpy1.20openssl3python3.9.____cpython:
-        CONFIG: osx_64_mpinompinumpy1.20openssl3python3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpinompinumpy1.21openssl1.1.1python3.10.____cpython:
-        CONFIG: osx_64_mpinompinumpy1.21openssl1.1.1python3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpinompinumpy1.21openssl3python3.10.____cpython:
-        CONFIG: osx_64_mpinompinumpy1.21openssl3python3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.20openssl1.1.1python3.8.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.20openssl1.1.1python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.20openssl1.1.1python3.9.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.20openssl1.1.1python3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.20openssl3python3.8.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.20openssl3python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.20openssl3python3.9.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.20openssl3python3.9.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.21openssl1.1.1python3.10.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.21openssl1.1.1python3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.21openssl3python3.10.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.21openssl3python3.10.____cpython
+      osx_64_mpiopenmpinumpy1.21python3.10.____cpython:
+        CONFIG: osx_64_mpiopenmpinumpy1.21python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 

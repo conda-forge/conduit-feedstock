@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2019
 hdf5:
-- 1.12.1
+- 1.14.0
 mpi:
 - nompi
 mpich:
@@ -23,7 +23,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.8.* *_cpython
+- 3.9.* *_cpython
 target_platform:
 - win-64
 vc:
