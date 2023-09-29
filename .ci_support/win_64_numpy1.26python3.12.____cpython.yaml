@@ -1,7 +1,7 @@
 c_compiler:
 - vs2019
 channel_sources:
-- conda-forge
+- conda-forge/label/python_rc,conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
@@ -13,7 +13,7 @@ mpi:
 mpich:
 - '4'
 numpy:
-- '1.22'
+- '1.26'
 openmpi:
 - '4'
 openssl:
@@ -23,7 +23,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.9.* *_cpython
+- 3.12.* *_cpython
 target_platform:
 - win-64
 vc:
@@ -31,5 +31,6 @@ vc:
 zip_keys:
 - - python
   - numpy
+  - channel_sources
 zlib:
 - '1.2'
