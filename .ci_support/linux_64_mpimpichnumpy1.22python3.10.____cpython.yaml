@@ -19,9 +19,9 @@ fortran_compiler:
 fortran_compiler_version:
 - '12'
 hdf5:
-- 1.14.2
+- 1.14.3
 mpi:
-- nompi
+- mpich
 mpich:
 - '4'
 numpy:
