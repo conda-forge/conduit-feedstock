@@ -25,6 +25,7 @@ requirements:
     - {{ mpi }}  # [mpi != 'nompi']
     - libpython-static  # [py>=38]
     - python
+    - pip
     - numpy
     - openssl
     - hdf5
