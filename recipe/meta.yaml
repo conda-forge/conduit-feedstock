@@ -1,6 +1,6 @@
 {% set name = "conduit" %}
-{% set version = "0.8.8" %}
-{% set sha256 = "99811e9c464b6f841f52fcd47e982ae47cbb01cba334cff43eabe13eea58c0df" %}
+{% set version = "0.9.1" %}
+{% set sha256 = "a3f1168738dcf72f8ebf83299850301aaf56e803f40618fc1230a755d0d05363" %}
 
 package:
   name: {{ name }}
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win and vc<14]
 
 requirements:
@@ -25,6 +25,7 @@ requirements:
     - {{ mpi }}  # [mpi != 'nompi']
     - libpython-static  # [py>=38]
     - python
+    - pip
     - numpy
     - openssl
     - hdf5
