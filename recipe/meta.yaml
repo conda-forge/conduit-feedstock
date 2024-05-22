@@ -1,6 +1,6 @@
 {% set name = "conduit" %}
-{% set version = "0.9.1" %}
-{% set sha256 = "a3f1168738dcf72f8ebf83299850301aaf56e803f40618fc1230a755d0d05363" %}
+{% set version = "0.9.2" %}
+{% set sha256 = "45d5a4eccd0fc978d153d29c440c53c483b8f29dfcf78ddcc9aa15c59b257177" %}
 
 package:
   name: {{ name }}
@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('fortran') }}  # [unix]
     - make                       # [linux]
