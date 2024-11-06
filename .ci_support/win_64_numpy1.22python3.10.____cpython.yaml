@@ -9,7 +9,7 @@ channel_targets:
 cxx_compiler:
 - vs2019
 hdf5:
-- 1.14.3
+- 1.14.4
 mpi:
 - nompi
 mpich:
@@ -34,4 +34,4 @@ zip_keys:
 - - python
   - numpy
 zlib:
-- '1.2'
+- '1'
