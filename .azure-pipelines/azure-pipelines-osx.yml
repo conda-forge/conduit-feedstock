@@ -5,14 +5,11 @@
 jobs:
 - job: osx
   pool:
-    vmImage: macOS-12
+    vmImage: macOS-13
   strategy:
     matrix:
       osx_64_mpimpichnumpy1.22python3.10.____cpython:
         CONFIG: osx_64_mpimpichnumpy1.22python3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpimpichnumpy1.22python3.8.____cpython:
-        CONFIG: osx_64_mpimpichnumpy1.22python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
       osx_64_mpimpichnumpy1.22python3.9.____cpython:
         CONFIG: osx_64_mpimpichnumpy1.22python3.9.____cpython
@@ -26,9 +23,6 @@ jobs:
       osx_64_mpinompinumpy1.22python3.10.____cpython:
         CONFIG: osx_64_mpinompinumpy1.22python3.10.____cpython
         UPLOAD_PACKAGES: 'True'
-      osx_64_mpinompinumpy1.22python3.8.____cpython:
-        CONFIG: osx_64_mpinompinumpy1.22python3.8.____cpython
-        UPLOAD_PACKAGES: 'True'
       osx_64_mpinompinumpy1.22python3.9.____cpython:
         CONFIG: osx_64_mpinompinumpy1.22python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -40,9 +34,6 @@ jobs:
         UPLOAD_PACKAGES: 'True'
       osx_64_mpiopenmpinumpy1.22python3.10.____cpython:
         CONFIG: osx_64_mpiopenmpinumpy1.22python3.10.____cpython
-        UPLOAD_PACKAGES: 'True'
-      osx_64_mpiopenmpinumpy1.22python3.8.____cpython:
-        CONFIG: osx_64_mpiopenmpinumpy1.22python3.8.____cpython
         UPLOAD_PACKAGES: 'True'
       osx_64_mpiopenmpinumpy1.22python3.9.____cpython:
         CONFIG: osx_64_mpiopenmpinumpy1.22python3.9.____cpython

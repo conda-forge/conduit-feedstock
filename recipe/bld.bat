@@ -10,6 +10,8 @@ cmake -G "NMake Makefiles" ^
       -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
       -DCMAKE_BUILD_TYPE:STRING=Release ^
       -DENABLE_PYTHON=ON ^
+      -DENABLE_TESTS=OFF ^
+      -DCONDUIT_ENABLE_TESTS=OFF ^
       -Dgtest_disable_pthreads=ON ^
       -DPYTHON_EXECUTABLE:FILEPATH="%PYTHON%" ^
       -DPYTHON_MODULE_INSTALL_PREFIX="%SP_DIR%" ^
