@@ -9,6 +9,8 @@ package:
 source:
   url: https://github.com/LLNL/conduit/releases/download/v{{ version }}/conduit-v{{ version }}-src-with-blt.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - patches/0001-CMake-doesn-t-like-backslashes.patch
 
 build:
   number: 1
@@ -21,12 +23,14 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ compiler("fortran") }}
     - make                       # [linux]
+    - ninja                      # [win]
     - cmake
   host:
     - {{ mpi }}  # [mpi != 'nompi']
     - libpython-static  # [py>=38]
     - python
     - pip
+    - setuptools
     - numpy
     - openssl
     - hdf5

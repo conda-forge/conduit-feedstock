@@ -1,0 +1,24 @@
+From e1b420b2fbad94510892d18d18063d3bfcb9808e Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Fri, 25 Jul 2025 10:47:46 +1100
+Subject: [PATCH] CMake doesn't like backslashes
+
+---
+ setup.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 1f166659..7307f16d 100644
+--- a/setup.py
++++ b/setup.py
+@@ -85,8 +85,8 @@ class CMakeBuild(build_ext):
+         # required for auto-detection of auxiliary "native" libs
+         if not extdir.endswith(os.path.sep):
+             extdir += os.path.sep
+-        cmake_args = ['-DPYTHON_MODULE_INSTALL_PREFIX=' + pjoin(extdir),
+-                      '-DCMAKE_INSTALL_PREFIX=' + pjoin(ext.sourcedir,"_install"),
++        cmake_args = ['-DPYTHON_MODULE_INSTALL_PREFIX=' + str(pjoin(extdir)).replace("\\", "/"),
++                      '-DCMAKE_INSTALL_PREFIX=' + str(pjoin(ext.sourcedir,"_install")).replace("\\", "/"),
+                       '-DPYTHON_EXECUTABLE=' + sys.executable,
+                       '-DENABLE_PYTHON:BOOL=ON',
+                       '-DBUILD_SHARED_LIBS:BOOL=' + build_shared_libs,
