@@ -1,6 +1,6 @@
 {% set name = "conduit" %}
-{% set version = "0.9.5" %}
-{% set sha256 = "d93294efbf0936da5a27941e13486aa1a04a74a59285786a2303eed19a24265a" %}
+{% set version = "0.9.9" %}
+{% set sha256 = "53cb6258de9b846ccc5a05205db36e88209fe45c5b786a1f0c0ae63a4302148b" %}
 
 package:
   name: {{ name }}
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
 
 requirements:
