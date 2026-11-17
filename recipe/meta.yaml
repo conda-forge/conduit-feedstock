@@ -9,6 +9,9 @@ package:
 source:
   url: https://github.com/LLNL/conduit/releases/download/v{{ version }}/conduit-v{{ version }}-src-with-blt.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # Windows: avoid backslash escapes in generated cmake_install.cmake (CMake >= 4)
+    - 0001-win-forward-slash-python-install-prefix.patch
 
 build:
   number: 0
@@ -27,6 +30,10 @@ requirements:
     - libpython-static  # [py>=38]
     - python
     - pip
+    # conduit builds its python module via `pip install --no-build-isolation`;
+    # see build-system.requires in src/libs/conduit/python/pyproject.toml
+    - setuptools >=68
+    - wheel
     - numpy
     - openssl
     - hdf5

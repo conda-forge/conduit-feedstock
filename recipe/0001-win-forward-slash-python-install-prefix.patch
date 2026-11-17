@@ -1,0 +1,29 @@
+--- a/src/cmake/thirdparty/SetupPython.cmake
++++ b/src/cmake/thirdparty/SetupPython.cmake
+@@ -148,10 +148,14 @@
+     # also use pip for the install ...
+     # if PYTHON_MODULE_INSTALL_PREFIX is set, install there
+     if(PYTHON_MODULE_INSTALL_PREFIX)
+-        set(py_mod_inst_prefix ${PYTHON_MODULE_INSTALL_PREFIX})
+-        # make sure windows style paths don't ruin our day (or night)
++        set(py_mod_inst_prefix "${PYTHON_MODULE_INSTALL_PREFIX}")
++        # This path is embedded verbatim in the generated cmake_install.cmake
++        # script, where backslashes are parsed as escape sequences
++        # (e.g. "\b" in "D:\bld\..."). That is a hard error since CMake 4.0
++        # (CMP0010 OLD removed). Use forward slashes, which Python/pip accept
++        # on Windows as well.
+         if(WIN32)
+-            string(REGEX REPLACE "/" "\\\\" py_mod_inst_prefix  ${PYTHON_MODULE_INSTALL_PREFIX})
++            string(REPLACE "\\" "/" py_mod_inst_prefix "${PYTHON_MODULE_INSTALL_PREFIX}")
+         endif()
+         INSTALL(CODE
+             "
+@@ -159,7 +163,7 @@
+                 COMMAND ${Python3_EXECUTABLE} -m pip install . -V --upgrade
+                 --disable-pip-version-check --no-warn-script-location
+                 --no-index --no-deps --no-build-isolation
+-                --target ${py_mod_inst_prefix}
++                --target \"${py_mod_inst_prefix}\"
+                 RESULT_VARIABLE PY_MODULE_INSTALL_RESULT
+                 OUTPUT_VARIABLE PY_DIST_UTILS_INSTALL_OUT)
+             MESSAGE(STATUS \"\${PY_DIST_UTILS_INSTALL_OUT}\")
