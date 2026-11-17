@@ -52,3 +52,7 @@ if [[ ${RUN_TESTS} == "ON" ]]; then
 fi
 
 make install
+
+# link system libraries by name in the installed CMake export: see the script
+${PYTHON} "${RECIPE_DIR}/fix_cmake_export.py" "${PREFIX}" "${BUILD_PREFIX}" \
+    "${PREFIX}/lib/cmake/conduit/conduit.cmake"

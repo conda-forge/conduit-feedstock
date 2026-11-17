@@ -45,12 +45,25 @@ requirements:
     - zlib
 
 test:
+  files:
+    - test/
   requires:
     - numpy
+    - cmake
+    - ninja
+    - {{ compiler('c') }}
+    - {{ stdlib("c") }}
+    - {{ compiler('cxx') }}
   commands:
     - test -f $PREFIX/lib/libconduit.dylib  # [osx]
     - test -f $PREFIX/lib/libconduit.so     # [linux]
     - if not exist %PREFIX%\\Library\\lib\\conduit.lib exit 1  # [win]
+    # smoke test: find_package(Conduit) in a downstream CMake project
+    - cmake -S test -B build-test -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH:PATH=$PREFIX  # [unix]
+    - cmake -S test -B build-test -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH:PATH=%LIBRARY_PREFIX%  # [win]
+    - cmake --build build-test
+    - ./build-test/conduit_smoke  # [unix]
+    - build-test\conduit_smoke.exe  # [win]
   imports:
     - conduit
     - conduit.relay
