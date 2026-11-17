@@ -33,8 +33,6 @@ requirements:
     - libpython-static  # [py>=38]
     - python
     - pip
-    # conduit builds its python module via `pip install --no-build-isolation`;
-    # see build-system.requires in src/libs/conduit/python/pyproject.toml
     - setuptools >=68
     - wheel
     - numpy
