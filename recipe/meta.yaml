@@ -1,6 +1,6 @@
 {% set name = "conduit" %}
-{% set version = "0.9.9" %}
-{% set sha256 = "53cb6258de9b846ccc5a05205db36e88209fe45c5b786a1f0c0ae63a4302148b" %}
+{% set version = "0.9.10" %}
+{% set sha256 = "d1cbbdf3c202d6c5a82397fa1d6604bc5a4883e6129004cc9fc62ac33812511a" %}
 
 package:
   name: {{ name }}
@@ -9,6 +9,15 @@ package:
 source:
   url: https://github.com/LLNL/conduit/releases/download/v{{ version }}/conduit-v{{ version }}-src-with-blt.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # backport of LLNL/conduit#1730: pip install -v, not -V (an error since pip 26.3)
+    - 0001-pip-v-instead-of-V.patch
+    # backport of LLNL/conduit#1732: backslash (Windows) paths and spaces in python
+    # paths broke the install with CMake >= 4 and the installed ConduitConfig.cmake
+    - 0002-python-paths-backslashes-spaces.patch
+    # backport of LLNL/conduit#1733: link HDF5's system libraries by name, not by
+    # absolute paths into the build environment's sysroot
+    - 0003-hdf5-system-libs-by-name.patch
 
 build:
   number: 0
@@ -27,6 +36,8 @@ requirements:
     - libpython-static  # [py>=38]
     - python
     - pip
+    - setuptools >=68
+    - wheel
     - numpy
     - openssl
     - hdf5
@@ -37,12 +48,25 @@ requirements:
     - zlib
 
 test:
+  files:
+    - test/
   requires:
     - numpy
+    - cmake
+    - ninja
+    - {{ compiler('c') }}
+    - {{ stdlib("c") }}
+    - {{ compiler('cxx') }}
   commands:
     - test -f $PREFIX/lib/libconduit.dylib  # [osx]
     - test -f $PREFIX/lib/libconduit.so     # [linux]
     - if not exist %PREFIX%\\Library\\lib\\conduit.lib exit 1  # [win]
+    # smoke test: find_package(Conduit) in a downstream CMake project
+    - cmake -S test -B build-test -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH:PATH=$PREFIX  # [unix]
+    - cmake -S test -B build-test -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH:PATH=%LIBRARY_PREFIX%  # [win]
+    - cmake --build build-test
+    - ./build-test/conduit_smoke  # [unix]
+    - build-test\conduit_smoke.exe  # [win]
   imports:
     - conduit
     - conduit.relay

@@ -52,3 +52,13 @@ if [[ ${RUN_TESTS} == "ON" ]]; then
 fi
 
 make install
+
+# the installed CMake export must not link libraries from the build
+# environment or the macOS SDK, which do not exist where the package is
+# installed (LLNL/conduit#1733)
+for build_path in "${BUILD_PREFIX}" "${CONDA_BUILD_SYSROOT:-}"; do
+    if [[ -n "${build_path}" ]] && grep -nF "${build_path}" "${PREFIX}/lib/cmake/conduit/conduit.cmake"; then
+        echo "conduit.cmake references ${build_path}"
+        exit 1
+    fi
+done
