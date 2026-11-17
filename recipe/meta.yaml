@@ -12,9 +12,9 @@ source:
   patches:
     # backport of LLNL/conduit#1730: pip install -v, not -V (an error since pip 26.3)
     - 0001-pip-v-instead-of-V.patch
-    # Windows: avoid backslash escapes in generated cmake_install.cmake (CMake >= 4),
-    # submitted upstream
-    - 0002-win-forward-slash-python-install-prefix.patch
+    # backport of LLNL/conduit#1732: backslash (Windows) paths and spaces in python
+    # paths broke the install with CMake >= 4 and the installed ConduitConfig.cmake
+    - 0002-python-paths-backslashes-spaces.patch
 
 build:
   number: 0
