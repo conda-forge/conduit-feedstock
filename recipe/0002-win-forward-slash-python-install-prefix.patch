@@ -1,25 +1,38 @@
+From adb9bf6b70211bec7e99eec6cd3829aefddf22ca Mon Sep 17 00:00:00 2001
+From: Axel Huebl <axel.huebl@plasma.ninja>
+Date: Tue, 17 Nov 2026 08:54:53 -0600
+Subject: [PATCH] CMake: Python Install Prefix on Windows
+
+With PYTHON_MODULE_INSTALL_PREFIX, the pip install(CODE) converted
+the path to backslashes on Windows and embedded it unquoted in
+cmake_install.cmake, where e.g. "\b" in "D:\bld\..." is an invalid
+escape sequence: CMake 3 warns, CMake 4 fails the install. Keep
+forward slashes and quote the path.
+---
+ src/cmake/thirdparty/SetupPython.cmake | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/src/cmake/thirdparty/SetupPython.cmake b/src/cmake/thirdparty/SetupPython.cmake
+index 1e146efb..3f324308 100644
 --- a/src/cmake/thirdparty/SetupPython.cmake
 +++ b/src/cmake/thirdparty/SetupPython.cmake
-@@ -148,10 +148,14 @@
+@@ -148,10 +148,11 @@ FUNCTION(PYTHON_ADD_PIP_SETUP)
      # also use pip for the install ...
      # if PYTHON_MODULE_INSTALL_PREFIX is set, install there
      if(PYTHON_MODULE_INSTALL_PREFIX)
 -        set(py_mod_inst_prefix ${PYTHON_MODULE_INSTALL_PREFIX})
 -        # make sure windows style paths don't ruin our day (or night)
 +        set(py_mod_inst_prefix "${PYTHON_MODULE_INSTALL_PREFIX}")
-+        # This path is embedded verbatim in the generated cmake_install.cmake
-+        # script, where backslashes are parsed as escape sequences
-+        # (e.g. "\b" in "D:\bld\..."). That is a hard error since CMake 4.0
-+        # (CMP0010 OLD removed). Use forward slashes, which Python/pip accept
-+        # on Windows as well.
++        # install(CODE) below embeds this path in cmake_install.cmake,
++        # where backslashes are escape sequences: use forward slashes
          if(WIN32)
 -            string(REGEX REPLACE "/" "\\\\" py_mod_inst_prefix  ${PYTHON_MODULE_INSTALL_PREFIX})
 +            string(REPLACE "\\" "/" py_mod_inst_prefix "${PYTHON_MODULE_INSTALL_PREFIX}")
          endif()
          INSTALL(CODE
              "
-@@ -159,7 +163,7 @@
-                 COMMAND ${Python3_EXECUTABLE} -m pip install . -V --upgrade
+@@ -159,7 +160,7 @@ FUNCTION(PYTHON_ADD_PIP_SETUP)
+                 COMMAND ${Python3_EXECUTABLE} -m pip install . -v --upgrade
                  --disable-pip-version-check --no-warn-script-location
                  --no-index --no-deps --no-build-isolation
 -                --target ${py_mod_inst_prefix}
